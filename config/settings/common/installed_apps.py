@@ -28,6 +28,8 @@ THIRD_PARTY = (
 
 LOCAL_APPS = (
     'apps.core',
+    'apps.users',
+    'apps.precedency',
 )
 
 INSTALLED_APPS += DRF_PACKAGES + THIRD_PARTY + HEALTH_CHECKS_APPS + LOCAL_APPS
