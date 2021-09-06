@@ -5,6 +5,7 @@ from django.contrib.postgres.fields import CICharField
 from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
 from imagekit import models as imagekitmodels
 from imagekit.processors import ResizeToFill, Transpose
 
