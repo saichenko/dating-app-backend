@@ -11,7 +11,8 @@ class Precedence(BaseModel):
 
     title = CICharField(
         verbose_name=_("title"),
-        max_length=65
+        max_length=65,
+        unique=True
     )
 
     def __str__(self):
@@ -43,7 +44,8 @@ class UsersPrecedency(BaseModel):
     attitude = models.PositiveSmallIntegerField(
         verbose_name=_("attitude"),
         validators=[MinValueValidator(0), MaxValueValidator(1)],
-        choices=ATTITUDES
+        choices=ATTITUDES,
+        db_index=True
     )
     importance = models.PositiveSmallIntegerField(
         verbose_name=_("importance"),
@@ -54,5 +56,6 @@ class UsersPrecedency(BaseModel):
         return f"{self.user}| {self.precedency.title}"
 
     class Meta:
+        unique_together = (("precedency", "user"),)
         verbose_name = _("Users precedency")
         verbose_name_plural = _("Users precedence")
