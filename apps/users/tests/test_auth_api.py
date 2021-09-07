@@ -1,6 +1,7 @@
-import pytest
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+
+import pytest
 from knox.models import AuthToken
 
 from apps.users.factories import UserFactory
@@ -11,9 +12,9 @@ User = get_user_model()
 @pytest.fixture(scope="function")
 def user():
     """Function fixture for active user instances with password `123`."""
-    user = UserFactory()
-    user.set_password("123")
-    user.save()
+    instance = UserFactory()
+    instance.set_password("123")
+    instance.save()
     return user
 
 
@@ -35,8 +36,8 @@ def test_user_registration_view(api_client, data):
     url = reverse("api:register")
     response = api_client.post(url, data, format="json")
     assert response.status_code == 200
-    user = User.objects.get(email=data['email'])
-    assert not user.is_active  # Check user is not active.
+    user_instance = User.objects.get(email=data["email"])
+    assert not user_instance.is_active  # Check user is not active.
 
 
 def test_user_login_view(api_client, user):

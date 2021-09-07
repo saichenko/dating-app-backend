@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model
 from django.utils.translation import gettext_lazy as _
+
 from rest_framework import serializers
 
 from libs.open_api.serializers import OpenApiSerializer

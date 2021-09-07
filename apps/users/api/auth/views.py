@@ -4,11 +4,14 @@ from django.urls import reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext_lazy as _
-from knox.views import LoginView as KnoxLoginView
+
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 
+from knox.views import LoginView as KnoxLoginView
+
 from libs.notifications.email import DefaultEmailNotification
+
 from .serializers import AuthTokenSerializer, RegisterSerializer
 
 
