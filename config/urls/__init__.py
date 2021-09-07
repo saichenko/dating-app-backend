@@ -9,6 +9,7 @@ urlpatterns = [
     # Django Health Check url
     # See more details: https://pypi.org/project/django-health-check/
     path("health/", include("health_check.urls")),
+    path("users/", include("apps.users.urls")),
 ]
 
 urlpatterns += api_urlpatterns
