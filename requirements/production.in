@@ -71,6 +71,9 @@ pytest-sugar
 # Fast creating of model instances. May be used in tests
 # https://factoryboy.readthedocs.io/en/stable/
 factory-boy
+# Mocking tests with pytest
+# https://github.com/pytest-dev/pytest-mock
+pytest-mock
 
 # Prettified output in logging
 # https://rich.readthedocs.io/en/latest/introduction.html
