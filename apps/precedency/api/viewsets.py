@@ -4,7 +4,7 @@ from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from django_filters import rest_framework as filters
 from apps.precedency import models
 from .serializers import PrecedenceSerializer, UsersPrecedencySerializer
-from apps.precedency.filters import PrecedenceFilter
+from apps.precedency.filters import PrecedenceFilter, UsersPrecedencyFilter
 
 
 class PrecedenceViewSet(
@@ -26,6 +26,8 @@ class UsersPrecedencyViewSet(ModelViewSet):
     queryset = models.UsersPrecedency.objects.all()
     serializer_class = UsersPrecedencySerializer
     permission_classes = (IsAuthenticated,)
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = UsersPrecedencyFilter
 
     def get_queryset(self):
         """Return UsersPrecedency queryset related to current user."""
