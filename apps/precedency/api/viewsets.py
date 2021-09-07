@@ -11,11 +11,15 @@ class PrecedenceViewSet(
         mixins.ListModelMixin,
         mixins.RetrieveModelMixin,
 ):
+    """ReadOnly ViewSet for precedency."""
+
     queryset = models.Precedence.objects.all()
     serializer_class = PrecedenceSerializer
 
 
 class UsersPrecedencyViewSet(ModelViewSet):
+    """CRUD ViewSet for current user UsersPrecedency objects."""
+
     queryset = models.UsersPrecedency.objects.all()
     serializer_class = UsersPrecedencySerializer
     permission_classes = (IsAuthenticated,)

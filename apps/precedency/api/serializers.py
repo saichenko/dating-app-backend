@@ -3,6 +3,8 @@ from apps.precedency import models
 
 
 class PrecedenceSerializer(serializers.ModelSerializer):
+    """Serializer for Precedence model."""
+
     class Meta:
         model = models.Precedence
         fields = (
@@ -12,6 +14,7 @@ class PrecedenceSerializer(serializers.ModelSerializer):
 
 
 class UsersPrecedencySerializer(serializers.ModelSerializer):
+    """Serializer for UsersPrecedency with current user as default."""
 
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
