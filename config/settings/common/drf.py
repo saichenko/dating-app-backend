@@ -9,7 +9,7 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
         # SessionAuthentication is also used for CSRF
         # validation on ajax calls from the frontend
-        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',

@@ -8,6 +8,10 @@ django-debug-toolbar
 # Needed to run runserver_plus
 Werkzeug
 
+# Mocking tests with pytest
+# https://github.com/pytest-dev/pytest-mock
+pytest-mock
+
 # Improved REPL
 ipdb
 ipython

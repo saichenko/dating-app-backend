@@ -1,10 +1,9 @@
 """Configuration file for pytest
 """
-import os
-
-from django.conf import settings
 
 import pytest
+from django.conf import settings
+from rest_framework.test import APIClient
 
 
 def pytest_configure():
@@ -43,3 +42,9 @@ def temp_directory_for_media(tmpdir_factory):
     )
     media = tmpdir_factory.mktemp("tmp_media")
     settings.MEDIA_ROOT = media
+
+
+@pytest.fixture(scope="session")
+def api_client():
+    """Session fixture for APIClient."""
+    return APIClient()
