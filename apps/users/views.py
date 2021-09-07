@@ -25,7 +25,7 @@ class ActivateAccountView(TemplateView):
             user = None
 
         if not (user and default_token_generator.check_token(user, token)):
-            return HttpResponse(_("Activation link is invalid!"))
+            return HttpResponse(_("Activation link is invalid!"), status=401)
 
         user.is_active = True
         user.save()
