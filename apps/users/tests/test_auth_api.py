@@ -1,10 +1,7 @@
+import pytest
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-
-import pytest
 from knox.models import AuthToken
-
-from apps.users.factories import UserFactory
 
 User = get_user_model()
 
