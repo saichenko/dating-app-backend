@@ -1,10 +1,11 @@
+from django_filters import rest_framework as filters
 from rest_framework import mixins
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
-from django_filters import rest_framework as filters
+
 from apps.precedency import models
-from .serializers import PrecedenceSerializer, UsersPrecedencySerializer
 from apps.precedency.filters import PrecedenceFilter, UsersPrecedencyFilter
+from .serializers import PrecedenceSerializer, UsersPrecedencySerializer
 
 
 class PrecedenceViewSet(
