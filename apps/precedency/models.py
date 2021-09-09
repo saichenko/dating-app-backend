@@ -28,8 +28,8 @@ class UsersPrecedency(BaseModel):
     """User life precedence with its attitude and importance."""
 
     ATTITUDES = (
-        (0, _("Negative")),
-        (1, _("Positive")),
+        (1, _("Negative")),
+        (2, _("Positive")),
     )
 
     precedency = models.ForeignKey(
@@ -44,7 +44,7 @@ class UsersPrecedency(BaseModel):
     )
     attitude = models.PositiveSmallIntegerField(
         verbose_name=_("attitude"),
-        validators=[MinValueValidator(0), MaxValueValidator(1)],
+        validators=[MinValueValidator(1), MaxValueValidator(2)],
         choices=ATTITUDES,
         db_index=True
     )
@@ -54,7 +54,7 @@ class UsersPrecedency(BaseModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.user}| {self.precedency.title}"
+        return f"{self.user} precedency"
 
     class Meta:
         unique_together = (("precedency", "user"),)

@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-    """Factory for generates test User instance."""
+    """Factory for generating test User instance."""
     avatar = factory.django.ImageField(color="magenta")
     email = factory.Faker("email")
     first_name = factory.Faker("first_name")
