@@ -1,6 +1,6 @@
 # README
 
-Course Tracker is an awesome service
+Dating App is an awesome service
 
 ## Links
 

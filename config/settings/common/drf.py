@@ -28,8 +28,8 @@ REST_FRAMEWORK = {
 
 # https://drf-spectacular.readthedocs.io/en/latest/settings.html
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Course Tracker Api',
-    'DESCRIPTION': 'Api for Course Tracker',
+    'TITLE': 'Dating App Api',
+    'DESCRIPTION': 'Api for Dating App',
     'VERSION': get_latest_version("CHANGELOG.md"),
 }
 

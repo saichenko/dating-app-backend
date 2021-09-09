@@ -44,4 +44,4 @@ TESTING = False
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Custom settings
-APP_LABEL = "Course Tracker"
+APP_LABEL = "Dating App"

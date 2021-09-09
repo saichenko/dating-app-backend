@@ -1,4 +1,4 @@
-# Changelog of COURSE TRACKER project
+# Changelog of DATING APP project
 
 ### 0.0.0
 
