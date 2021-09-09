@@ -16,6 +16,7 @@ DRF_PACKAGES = (
     'rest_framework',
     'knox',
     'drf_spectacular',
+    'django_filters',
 )
 
 THIRD_PARTY = (

@@ -5,6 +5,8 @@ import pytest
 from django.conf import settings
 from rest_framework.test import APIClient
 
+from apps.users.factories import UserFactory
+
 
 def pytest_configure():
     """Set up Django settings for tests.
@@ -48,3 +50,19 @@ def temp_directory_for_media(tmpdir_factory):
 def api_client():
     """Session fixture for APIClient."""
     return APIClient()
+
+
+@pytest.fixture(scope="function")
+def auth_api_client(user, api_client):
+    """Function fixture for authenticated APIClient instance."""
+    api_client.force_authenticate(user)
+    return api_client
+
+
+@pytest.fixture(scope="function")
+def user():
+    """Function fixture for active user instances with password `123`."""
+    instance = UserFactory.build()
+    instance.set_password("123")
+    instance.save()
+    return instance

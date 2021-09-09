@@ -4,25 +4,7 @@ from django.urls import reverse
 import pytest
 from knox.models import AuthToken
 
-from apps.users.factories import UserFactory
-
 User = get_user_model()
-
-
-@pytest.fixture(scope="function")
-def user():
-    """Function fixture for active user instances with password `123`."""
-    instance = UserFactory()
-    instance.set_password("123")
-    instance.save()
-    return user
-
-
-@pytest.fixture(scope="function")
-def auth_api_client(user, api_client):
-    """Function fixture for authenticated APIClient instance."""
-    api_client.force_authenticate(user)
-    return api_client
 
 
 @pytest.mark.parametrize("data", (
