@@ -6,6 +6,7 @@ import pytest
 from apps.precedency.factories import PrecedenceFactory, UserPrecedencyFactory
 from apps.precedency.models import UsersPrecedency
 from apps.users.factories import UserFactory
+
 User = get_user_model()
 
 
@@ -73,23 +74,23 @@ def test_users_precedency_delete_action(
 def test_user_cannot_delete_others_precedency(auth_api_client):
     """Test other user can not delete other's UsersPrecedency."""
     new_user = UserFactory()
-    precedency = UserPrecedencyFactory(user=new_user)
+    precedency_instance = UserPrecedencyFactory(user=new_user)
     url = reverse(
         "api:user-precedency-detail",
         kwargs={"pk": precedency.pk}
     )
     response = auth_api_client.delete(url)
     assert response.status_code == 404
-    assert UsersPrecedency.objects.filter(pk=precedency.pk).exists()
+    assert UsersPrecedency.objects.filter(pk=precedency_instance.pk).exists()
 
 
 def test_user_cannot_get_others_precedency(auth_api_client):
     """Test other user can not get other's UsersPrecedency."""
     new_user = UserFactory()
-    precedency = UserPrecedencyFactory(user=new_user)
+    precedency_instance = UserPrecedencyFactory(user=new_user)
     url = reverse(
         "api:user-precedency-detail",
-        kwargs={"pk": precedency.pk}
+        kwargs={"pk": precedency_instance.pk}
     )
     response = auth_api_client.get(url)
     assert response.status_code == 404
