@@ -46,7 +46,7 @@ def test_precedency_detail_view(api_client, precedence):
 def test_users_precedency_action_create(auth_api_client, data, precedence):
     """Test users precedency creating action."""
     url = reverse("api:user-precedency-list")
-    data["precedency"] = precedence.id
+    data["precedence"] = precedence.id
     response = auth_api_client.post(url, data, format="json")
     assert response.status_code == 201
     resp_data = response.data
