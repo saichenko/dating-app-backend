@@ -34,5 +34,5 @@ class UsersPrecedencyFilter(django_filters.FilterSet):
             "importance__gt",
             "importance__lt",
             "attitude",
-            "precedency",
+            "precedence",
         )
