@@ -37,11 +37,11 @@ def test_precedency_detail_view(api_client, precedence):
 
 
 @pytest.mark.parametrize("data", (
-    ({"attitude": 1, "importance": 2}),
-    ({"attitude": 0, "importance": 10}),
-    ({"attitude": 0, "importance": 5}),
-    ({"attitude": 1, "importance": 4}),
+    ({"attitude": 2, "importance": 2}),
+    ({"attitude": 1, "importance": 10}),
     ({"attitude": 1, "importance": 5}),
+    ({"attitude": 2, "importance": 4}),
+    ({"attitude": 2, "importance": 5}),
 ))
 def test_users_precedency_action_create(auth_api_client, data, precedence):
     """Test users precedency creating action."""
@@ -77,7 +77,7 @@ def test_user_cannot_delete_others_precedency(auth_api_client):
     precedency_instance = UserPrecedencyFactory(user=new_user)
     url = reverse(
         "api:user-precedency-detail",
-        kwargs={"pk": precedency.pk}
+        kwargs={"pk": precedency_instance.pk}
     )
     response = auth_api_client.delete(url)
     assert response.status_code == 404
