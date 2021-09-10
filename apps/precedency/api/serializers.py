@@ -23,7 +23,7 @@ class UsersPrecedencySerializer(serializers.ModelSerializer):
         model = models.UsersPrecedency
         fields = (
             "id",
-            "precedency",
+            "precedence",
             "user",
             "attitude",
             "importance",

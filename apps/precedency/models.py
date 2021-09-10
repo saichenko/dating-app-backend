@@ -32,7 +32,7 @@ class UsersPrecedency(BaseModel):
         (2, _("Positive")),
     )
 
-    precedency = models.ForeignKey(
+    precedence = models.ForeignKey(
         verbose_name=_("precedency"),
         to="precedency.Precedence",
         on_delete=models.CASCADE
@@ -57,6 +57,6 @@ class UsersPrecedency(BaseModel):
         return f"{self.user} precedency"
 
     class Meta:
-        unique_together = (("precedency", "user"),)
+        unique_together = (("precedence", "user"),)
         verbose_name = _("Users precedency")
         verbose_name_plural = _("Users precedence")

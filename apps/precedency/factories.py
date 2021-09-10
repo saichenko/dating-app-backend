@@ -16,8 +16,8 @@ class PrecedenceFactory(factory.django.DjangoModelFactory):
 class UserPrecedencyFactory(factory.django.DjangoModelFactory):
     """Factory for generating UserPrecedency instance w/o user."""
 
-    precedency = factory.SubFactory(PrecedenceFactory)
-    attitude = fuzzy.FuzzyInteger(0, 1)
+    precedence = factory.SubFactory(PrecedenceFactory)
+    attitude = fuzzy.FuzzyInteger(1, 2)
     importance = fuzzy.FuzzyInteger(1, 10)
 
     class Meta:

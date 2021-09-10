@@ -26,7 +26,7 @@ class UsersPrecedencyAdmin(admin.ModelAdmin):
     """Admin interface for UsersPrecedency model."""
 
     list_display = (
-        "precedency",
+        "precedence",
         "user",
         "attitude",
         "importance",
