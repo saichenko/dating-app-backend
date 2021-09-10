@@ -8,4 +8,4 @@ from invoke import task
 @task
 def fill_sample_data(context):
     """Prepare sample data for local usage."""
-    raise NotImplementedError("Implement sample data generation")
+    context.run("python3 manage.py fill_sample_data")
